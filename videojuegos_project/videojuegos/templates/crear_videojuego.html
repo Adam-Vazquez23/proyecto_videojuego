@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <!-- Cargando jQuery desde CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Vinculando el JS -->
+    <script src="{% static 'scripts.js' %}"></script>
+    <title>Crear Videojuego</title>
+</head>
+<body>
+    <h1>Crear Videojuego</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Título:</label><input type="text" name="titulo"><br>
+        <label>Género:</label><input type="text" name="genero"><br>
+        <label>Fecha de Lanzamiento:</label><input type="date" name="fecha_lanzamiento"><br>
+        <label>Desarrollador:</label><input type="text" name="desarrollador"><br>
+        <label>Precio:</label><input type="number" name="precio" step="0.01"><br>
+        <button type="submit">Crear</button>
+    </form>
+</body>
+</html>
