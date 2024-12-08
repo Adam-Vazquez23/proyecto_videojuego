@@ -12,6 +12,13 @@
 <body>
     <h1>Lista de Videojuegos</h1>
 
+    <!-- Mostrar usuario autenticado -->
+    {% if user.is_authenticated %}
+        <p>Bienvenido, <strong>{{ user.username }}</strong>!</p>
+    {% else %}
+        <p><a href="{% url 'login' %}">Inicia sesión</a> o <a href="{% url 'registro' %}">regístrate</a>.</p>
+    {% endif %}
+
     <!-- Enlace para crear un nuevo videojuego -->
     <a href="{% url 'crear_videojuego' %}" class="btn">Crear Nuevo Videojuego</a>
 
@@ -38,6 +45,7 @@
                 <td>
                     <a href="{% url 'actualizar_videojuego' videojuego.id %}" class="btn-edit">Editar</a>
                     <a href="{% url 'borrar_videojuego' videojuego.id %}" class="btn-delete">Eliminar</a>
+                    <a href="{% url 'logout' %}" class="btn-logout">Cerrar Sesión</a>
                 </td>
             </tr>
             {% endfor %}
@@ -45,4 +53,6 @@
     </table>
 </body>
 </html>
+
+
 
