@@ -28,7 +28,7 @@ def inicio_sesion(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('listar_videojuegos')  # Cambia 'home' a tu vista principal
+                return redirect('listar_videojuegos') 
             else:
                 messages.error(request, "Usuario o contraseña incorrectos.")
     else:
